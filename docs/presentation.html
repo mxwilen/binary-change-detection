@@ -5,7 +5,7 @@
 	<title>Product Presentation @ Client</title>
 	<meta charset="UTF-8" />
 	<link href="favicon.png" rel="icon" type="image/png" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mxwilen/binary-change-detection/docs/res/styling.css">
+	<link rel="stylesheet" href="res/styling.css">
 	<style>
 		@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 		@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
@@ -43,7 +43,7 @@ class: center, middle
 
 - **Metod**
 
-- **Jämförelse mot tidigare arbete**
+- **Tidigare arbete**
 
 - **Resultat**
 
@@ -88,7 +88,13 @@ class: breadcrumb
 >[!Important]
 > **Viktigt**
 > <br>- Inga forensiska verktyg har använts.
-> <br>- Projektet fokuserar enbart på jämförelse av Android binärer
+> <br>- Projektet fokuserar enbart på jämförelse av Android-binärer
+
+---
+
+class: middle, center
+
+# Metod
 
 ---
 
@@ -98,7 +104,7 @@ class: breadcrumb
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; **Översikt** &rarr; Detektera ändringar &rarr; Kategorisering &rarr; Evaluering
 
-## Metod
+## Översikt
 
 >[!check]
 > **Framtagen pipeline**
@@ -107,7 +113,7 @@ class: breadcrumb
 >- 3 olika moduler används för att generera en HTML rapport 
 ><br>
 ><br>
->- Fokus på Android APKer, men Ghidriff/Ghidra stödjer fler arkitekturer
+>- Fokus på Android-APKer, men Ghidriff/Ghidra stödjer fler arkitekturer
 
 <br>
 
@@ -123,9 +129,9 @@ class: breadcrumb
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; ~~Översikt~~ &rarr; **Detektera ändringar** &rarr; Kategorisering &rarr; Evaluering
 
-## Metod
+## Detektera ändringar
 
-- **Efter bakgrundsarbete valde vi Ghidriff, ett Python baserat verktyg som använder Ghidra APIet** *(headless)*
+- **Efter bakgrundsarbete valde vi Ghidriff, ett Python-baserat verktyg som använder Ghidra-APIet** *(headless)*
 
 - **Ghidriff kan varken kategorisera eller ranka ändringar**
 
@@ -145,7 +151,7 @@ class: breadcrumb
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; ~~Översikt~~ &rarr; **Detektera ändringar** &rarr; Kategorisering &rarr; Evaluering
 
-## Metod
+## Detektera ändringar
 
 >[!info]
 > Så arbetar Ghidriff
@@ -183,7 +189,7 @@ class: breadcrumb
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; ~~Översikt~~ &rarr; ~~Detektera ändringar~~ &rarr; **Kategorisering** &rarr; Evaluering
 
-## Metod
+## Kategorisering
 
 >[!info]
 > Så kategoriserar vi
@@ -218,9 +224,9 @@ class: breadcrumb
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; ~~Översikt~~ &rarr; ~~Detektera ändringar~~ &rarr; **Kategorisering** &rarr; Evaluering
 
-## Metod
+## Kategorisering
 
-| ***Kritisk* kategori**    | **Ändringar i..** |
+| *Kritisk* **kategori**    | **Ändringar i..** |
 |------------------------|---------------------------|
 | `Data storage`         |&emsp;&emsp;..datastruktur, nya läsningar och skrivningar, etc.|<br><br>
 | `File write`           |&emsp;&emsp;..tillägg eller borttagning av filer.|<br><br>
@@ -238,9 +244,9 @@ class: breadcrumb
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; ~~Översikt~~ &rarr; ~~Detektera ändringar~~ &rarr; **Kategorisering** &rarr; Evaluering
 
-## Metod
+## Kategorisering
 
-| ***Icke-kritisk* kateg.**    | **Ändringar i..** |
+| *Icke-kritisk* **kateg.**    | **Ändringar i..** |
 |------------------------|---------------------------|
 | `UI update`            |&emsp;..användargränssnitt (ex. Views, layouter, etc.) |<br><br>
 | `Network call`         |&emsp;..nätverksoperationer, API-anrop, Endpoints|<br><br>
@@ -256,7 +262,7 @@ class: breadcrumb
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; ~~Översikt~~ &rarr; ~~Detektera ändringar~~ &rarr; **Kategorisering** &rarr; Evaluering
 
-## Metod
+## Kategorisering
 
 <div class="columns">
 	<img src="images/kritiska-ord.png" width="100%">
@@ -278,7 +284,7 @@ class: breadcrumb
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; ~~Översikt~~ &rarr; ~~Detektera ändringar~~ &rarr; ~~Kategorisering~~ &rarr; **Evaluering**
 
-## Metod
+## Evaluering
 
 **Varje ändring** (metod/funktion) **blir tilldelad en poäng.**
 
@@ -290,7 +296,7 @@ Påverkande faktorer
 <br>
 <br>
 
-**Syfte:** Dem ändringarna med mest relevant data ska hamna först
+**Syfte:** De ändringar med mest relevant data ska hamna först
 
 
 ---
@@ -340,13 +346,19 @@ class: breadcrumb
 
 ---
 
+class: middle, center
+
+# Resultat
+
+---
+
 class: breadcrumb
 > ~~Arbetsprocess~~ &rarr; ~~Introduktion~~ &rarr; ~~Metod~~ &rarr; ~~Tidigare arbete~~ &rarr; **Resultat** &rarr; Diskussion &rarr; Framtida arbete och utmaningar
 ><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; **Översikt** &rarr; Träffsäkerhet (kategorier)
 
-## Resultat
+## Översikt
 
 <div style="margin-top: -30px;">
 >[!question]
@@ -386,7 +398,7 @@ class: breadcrumb
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; ~~Översikt~~ &rarr; **Träffsäkerhet (kategorier)**
 
-## Resultat
+## Träffsäkerhet (kategorier)
 
 <div class="columns" style="margin-bottom: 30px;">
 <img src="images/krit-kategori-accuracy.png" width="100%">
@@ -455,6 +467,7 @@ class: middle, center
 
 # Demo!
 
+
     </textarea>
 	<!-- END OF PRESENTATION -->
 
@@ -464,7 +477,7 @@ class: middle, center
 	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
-	<script src="https://cdn.jsdelivr.net/gh/mxwilen/binary-change-detection/docs/res/scripts.js"></script>
+	<script src="res/scripts.js"></script>
 </body>
 
 </html>

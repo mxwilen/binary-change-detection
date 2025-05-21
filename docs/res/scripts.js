@@ -42,16 +42,10 @@ function preprocessMarkdown(md) {
                 calloutLines.push(line.replace(/^\s*>?\s?/, ''));
             } else {
                 const icon = iconMap[calloutType] || '📌';
-
-                //const content = marked.parseInline(calloutLines.join('\n'));
                 const rawContent = calloutLines.join('\n');
                 const highlightedContent = applyCustomHighlights(rawContent);
                 const content = marked.parseInline(highlightedContent);
-
-                // Old: Wrote iconMap name to callout
-                //result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span><strong>${calloutType.charAt(0).toUpperCase() + calloutType.slice(1)}:</strong> ${content}</div>`);
                 result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span> ${content}</div>`);
-
                 result.push(line);
                 insideCallout = false;
             }
@@ -63,14 +57,9 @@ function preprocessMarkdown(md) {
     // Final callout if EOF
     if (insideCallout) {
         const icon = iconMap[calloutType] || '📌';
-
-        // const content = marked.parseInline(calloutLines.join('\n'));
         const rawContent = calloutLines.join('\n');
         const highlightedContent = applyCustomHighlights(rawContent);
         const content = marked.parseInline(highlightedContent);
-
-        // Old: Wrote iconMap name to callout
-        //result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span> ${content}</div>`);
         result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span><strong>${calloutType.charAt(0).toUpperCase() + calloutType.slice(1)}:</strong> ${content}</div>`);
     }
 
@@ -90,6 +79,26 @@ Reveal.on('slidechanged', () => {
     mermaid.run({
         querySelector: '.mermaid'
     });
+
+    // 🟡 Inject breadcrumb as <blockquote> to match existing styling
+    const currentSlide = Reveal.getCurrentSlide();
+    const breadcrumb = currentSlide.getAttribute('data-breadcrumb');
+    const subbreadcrumb = currentSlide.getAttribute('data-subbreadcrumb');
+
+    // Remove old breadcrumb blockquote if it exists
+    const oldBreadcrumb = currentSlide.querySelector('blockquote[data-generated-breadcrumb]');
+    if (oldBreadcrumb) oldBreadcrumb.remove();
+
+    if (breadcrumb) {
+        const bq = document.createElement('blockquote');
+        bq.setAttribute('data-generated-breadcrumb', 'true');
+
+        const parsedMain = marked.parseInline(applyCustomHighlights(breadcrumb));
+        const parsedSub = subbreadcrumb ? marked.parseInline(applyCustomHighlights(subbreadcrumb)) : '';
+        bq.innerHTML = `${parsedMain}${parsedSub ? `<br>${parsedSub}` : ''}`;
+
+        currentSlide.prepend(bq);
+    }
 });
 
 // Render on initial load too
