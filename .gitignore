@@ -1,0 +1,11 @@
+output/*
+example-binaries/SimpleApp_*
+ghidriff-project
+ghidriffs/*
+signal-binaries
+
+.DS_Store
+.env
+
+__pycache__/
+categorization/old.py
