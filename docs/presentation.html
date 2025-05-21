@@ -84,6 +84,7 @@ class: breadcrumb
 <br>
 
 >[!Important]
+> **Viktigt**
 > <br>- Inga forensiska verktyg har använts.
 > <br>- Projektet fokuserar enbart på jämförelse av Android binärer
 
@@ -117,11 +118,15 @@ class: breadcrumb
 
 ## Metod
 
->[!info]
-><br>- **3 olika moduler används för att generera en HTML rapport**
-><br>- **Fokus på Android APKer men Ghidriff stödjer fler arkitekturer**
+>[!check]
+> **Framtagen pipeline**
+><br>
+><br>
+>- 3 olika moduler används för att generera en HTML rapport 
+><br>
+><br>
+>- Fokus på Android APKer, men Ghidriff/Ghidra stödjer fler arkitekturer
 
-<br>
 <br>
 
 <div style="text-align: center;">
@@ -147,7 +152,7 @@ class: breadcrumb
 	- Inga ändringar har behövt göras i verktyget. Det har kunnat integreras i vårt egna verktyg
 
 <div style="text-align: center;">
-<img src="res/images/ghidriff-logo.png" width="40%">
+	<img src="res/images/ghidriff-logo.png" width="40%">
 </div>
 
 ---
@@ -161,8 +166,9 @@ class: breadcrumb
 ## Metod
 
 >[!info]
+> Så arbetar Ghidriff
 ><br>
-> detta händer....
+> 
 
 <div class="mermaid">
 flowchart LR
@@ -191,8 +197,14 @@ class: breadcrumb
 
 ## Metod
 
-- Syntax matching med hjälp av reguljära uttryck
-- Fördefinierade kategorier med tillhörande keywords
+>[!info]
+> Så kategoriserar vi
+> <br>
+> <br>
+>- **Syntax matching med hjälp av reguljära uttryck**
+> <br>
+> <br>
+>- **Fördefinierade kategorier med tillhörande keywords**
 
 <br>
 
@@ -216,25 +228,158 @@ class: breadcrumb
 > ~~Arbetsprocess~~ &rarr; ~~Introduktion~~ &rarr; ~~Tidigare arbete~~ &rarr; **Metod** &rarr; Resultat &rarr; Diskussion &rarr; Framtida arbete och utmaningar
 ><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+>&#8627; ~~Översikt~~ &rarr; ~~Detektera ändringar~~ &rarr; **Kategorisering** &rarr; Evaluering
+
+## Metod
+
+| ***Kritisk* kategori**    | **Ändringar i..** |
+|------------------------|---------------------------|
+| `Data storage`         |&emsp;&emsp;..datastruktur, nya läsningar och skrivningar, etc.|<br><br>
+| `File write`           |&emsp;&emsp;..tillägg eller borttagning av filer.|<br><br>
+| `Logging`              |&emsp;&emsp;..vad, var, när och hur data loggas.|<br><br>
+| `Authentication`       |&emsp;&emsp;..in/ut-loggningsprocesser, sessionshantering, etc.|<br><br>
+| `Error handling`       |&emsp;&emsp;..hur fel och undantag fångas, hanteras eller loggas, etc.|<br><br>
+| `Cryptographic`        |&emsp;&emsp;..krypteringsalg., nyckelhantering, hashmetoder, etc.|<br><br>
+
+
+---
+
+class: breadcrumb
+> ~~Arbetsprocess~~ &rarr; ~~Introduktion~~ &rarr; ~~Tidigare arbete~~ &rarr; **Metod** &rarr; Resultat &rarr; Diskussion &rarr; Framtida arbete och utmaningar
+><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+>&#8627; ~~Översikt~~ &rarr; ~~Detektera ändringar~~ &rarr; **Kategorisering** &rarr; Evaluering
+
+## Metod
+
+| ***Icke-kritisk* kateg.**    | **Ändringar i..** |
+|------------------------|---------------------------|
+| `UI update`            |&emsp;..användargränssnitt (ex. Views, layouter, etc.) |<br><br>
+| `Network call`         |&emsp;..nätverksoperationer, API-anrop, Endpoints|<br><br>
+| `Library function`     |&emsp;..externa bibliotekspaket.|<br><br>
+| `Text manipulation`    |&emsp;..textsträngar, promptar, etc. *(snabb ändring krävs)*|<br><br>
+
+
+---
+
+class: breadcrumb
+> ~~Arbetsprocess~~ &rarr; ~~Introduktion~~ &rarr; ~~Tidigare arbete~~ &rarr; **Metod** &rarr; Resultat &rarr; Diskussion &rarr; Framtida arbete och utmaningar
+><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+>&#8627; ~~Översikt~~ &rarr; ~~Detektera ändringar~~ &rarr; **Kategorisering** &rarr; Evaluering
+
+## Metod
+
+<div class="columns">
+	<img src="res/images/kritiska-ord.png" width="100%">
+	<img src="res/images/icke-kritiska-ord.png" width="82%" style="margin-left: 65px;">
+</div>
+
+>[!info]
+>Förtydligande
+><br>
+>**"Normala"**: Ord som endast är relevanta i en kategori,
+><br>
+>**"Tvetydiga"**: Ord som med rimlighet kan finnas i flera kategorier.
+
+---
+
+class: breadcrumb
+> ~~Arbetsprocess~~ &rarr; ~~Introduktion~~ &rarr; ~~Tidigare arbete~~ &rarr; **Metod** &rarr; Resultat &rarr; Diskussion &rarr; Framtida arbete och utmaningar
+><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 >&#8627; ~~Översikt~~ &rarr; ~~Detektera ändringar~~ &rarr; ~~Kategorisering~~ &rarr; **Evaluering**
 
 ## Metod
 
+**Varje ändring** (metod/funktion) **blir tilldelad en poäng.**
+
+Påverkande faktorer
+- Antal tilldelade kategorier
+- “Normala” ord får 1p
+- “Tvetydiga” ord får 0.5p
+
+<br>
+<br>
+
+**Syfte:** Dem ändringarna med mest relevant data ska hamna först
 
 
 ---
 
 class: breadcrumb
 > ~~Arbetsprocess~~ &rarr; ~~Introduktion~~ &rarr; ~~Tidigare arbete~~ &rarr; ~~Metod~~ &rarr; **Resultat** &rarr; Diskussion &rarr; Framtida arbete och utmaningar
+><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+>&#8627; **Översikt** &rarr; Träffsäkerhet (kategorier)
 
 ## Resultat
+
+<div class="columns">
+>[!check]
+>Inhämtade resultat
+><br>
+><br>
+>**91.4%** av ändringarna detekterades
+><br>
+><br>
+>**78.6%** av dessa fick rätt status
+><br>
+><br>
+>**74.3%** fick rätt kategori
+><br>
+>&emsp;&emsp;&emsp;&emsp; Kritiska **77.9%**
+><br>
+>&emsp;&emsp;&emsp;&emsp; Icke-kritisk **69.8%**
+><br>
+><br>
+>**3.3%** av unika ändringar kategoriseras som uncategorized
+<img src="res/images/resultat-overview.png" width="90%" style="margin-left: 40px;">
+</div>
+
+---
+
+class: breadcrumb
+> ~~Arbetsprocess~~ &rarr; ~~Introduktion~~ &rarr; ~~Tidigare arbete~~ &rarr; ~~Metod~~ &rarr; **Resultat** &rarr; Diskussion &rarr; Framtida arbete och utmaningar
+><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+>&#8627; ~~Översikt~~ &rarr; **Träffsäkerhet (kategorier)**
+
+## Resultat
+
+<div class="columns">
+<img src="res/images/krit-kategori-accuracy.png" width="100%">
+<img src="res/images/non-krit-kategori-accuracy.png" width="100%" style="margin-left: 40px;">
+</div>
+
+<br>
+
+>[!question]
+>Varför får kategorierna `Cryptographic`, `File write` och `Text manipulation` **0%** rätt träffar?
+><br>
+><br>
+>**1)** Om kategorin inte finns i källkods-ändringarna kommer det påverka resultatet pga. binärt sätt att redovisa resultat.
+><br>
+><br>
+>**2)** Av att läsa resultatet går det se att träffsäkerheten främst påverkas av hur många korrekta träffar som görs. Alla kategorier har en liknande mängd inkorrekta matchningar
 
 ---
 
 class: breadcrumb
 > ~~Arbetsprocess~~ &rarr; ~~Introduktion~~ &rarr; ~~Tidigare arbete~~ &rarr; ~~Metod~~ &rarr; ~~Resultat~~ &rarr; **Diskussion** &rarr; Framtida arbete och utmaningar
 
-## Diskussion
+## Diskussionspunkter
+
+- **Effektiv negligering av irrelevanta ändringar** *(hög träffsäkerhet av UI-ändringar och nätverksanrop)*
+
+- **Subjektiv manuell analys skapar tveksamheter i resultat med** *(små mängder sampel punkter → Mer tillförlitligt vid större mängd)*
+	- Svårt att hitta testdata där alla kategorier blir representerade
+
+- **Vad är en korrekt kategorisering?**
+	- +/- spel där resultatet är lite skevt åt båda håll
+
+- **Externa negativa påverkningar**
+	- Vissa `.dex` -filer går aldrig igenom Ghidra/Ghidriff. **Oklart varför!**
 
 ---
 
@@ -243,7 +388,31 @@ class: breadcrumb
 
 ## Framtida arbeten och utmaningar
 
+<div class="columns">
+<div class="column">
+<h4>1) Förbättring av pipeline</h4>
+<ul>
+	<li>Titta på rekursiva funktionsanrop för att få hela kedjan.</li>
+	<br>
+	<li>ML för kategorisering</li>
+</ul>
+</div>
+<div class="column">
+<h4>2) Säkrare resultat</h4>
+Gå ifrån en manuell analys för identifiering av korrekt data.
+<ul>
+	<li>Med ML?</li>
+	<br>
+	<li>Köra vår kategorisering på källkoden?</li>
+</ul>
+</div>
+</div>
+
 ---
+
+class: middle, center
+
+# Demo!
 
     </textarea>
 	<!-- END OF PRESENTATION -->

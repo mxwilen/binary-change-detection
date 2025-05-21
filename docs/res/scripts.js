@@ -32,7 +32,8 @@ function preprocessMarkdown(md) {
             } else {
                 const icon = iconMap[calloutType] || '📌';
                 const content = marked.parseInline(calloutLines.join('\n'));
-                result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span><strong>${calloutType.charAt(0).toUpperCase() + calloutType.slice(1)}:</strong> ${content}</div>`);
+                //result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span><strong>${calloutType.charAt(0).toUpperCase() + calloutType.slice(1)}:</strong> ${content}</div>`);
+                result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span> ${content}</div>`);
                 result.push(line);
                 insideCallout = false;
             }
@@ -46,6 +47,7 @@ function preprocessMarkdown(md) {
         const icon = iconMap[calloutType] || '📌';
         const content = marked.parseInline(calloutLines.join('\n'));
         result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span><strong>${calloutType.charAt(0).toUpperCase() + calloutType.slice(1)}:</strong> ${content}</div>`);
+        //result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span> ${content}</div>`);
     }
 
     return result.join('\n');
@@ -55,25 +57,20 @@ const sourceTextarea = document.getElementById('source');
 const originalMarkdown = sourceTextarea.value;
 const processedMarkdown = preprocessMarkdown(originalMarkdown);
 
-mermaid.initialize({ startOnLoad: false });
-
 const slideshow = remark.create({ source: processedMarkdown });
 
-function renderMermaid() {
-    const diagrams = document.querySelectorAll('.mermaid');
-    diagrams.forEach((el) => {
-        if (!el.classList.contains('rendered')) {
-            try {
-                mermaid.init(undefined, el);
-                el.classList.add('rendered');
-            } catch (e) {
-                console.error('Mermaid render error:', e);
-            }
-        }
-    });
-}
+mermaid.initialize({ startOnLoad: true });
 
-// Re-render Mermaid after each slide
-slideshow.on('afterShowSlide', () => {
-    setTimeout(renderMermaid, 10); // allow slide to be visible
+// Render mermaid on slide change
+Reveal.on('slidechanged', () => {
+    mermaid.run({
+        querySelector: '.mermaid'
+    });
+});
+
+// Render on initial load too
+document.addEventListener('DOMContentLoaded', () => {
+    mermaid.run({
+        querySelector: '.mermaid'
+    });
 });
