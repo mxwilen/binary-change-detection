@@ -24,6 +24,11 @@ strong {
     color: #ffcc66; /* yellow/gold for bold */
     font-weight: bold;
 }
+
+.highlight {
+  color: #ffcc66; /* yellow/gold for bold */
+  font-weight: bold;
+}
   
 strong em, em strong {
     color: #f26c6c; /* coral for bold+italic */

@@ -1,3 +1,11 @@
+/**
+ * Formatting scripts to make the markdown work in html
+ */
+
+function applyCustomHighlights(md) {
+    return md.replace(/\*\*(.+?)\*\*/g, '<span class="highlight">$1</span>');
+}
+
 function preprocessMarkdown(md) {
     const iconMap = {
         note: '📝',
@@ -8,6 +16,9 @@ function preprocessMarkdown(md) {
         question: '❓',
         check: '✅'
     };
+
+    // Replace **text** with span everywhere in the md-file
+    md = applyCustomHighlights(md);
 
     const lines = md.split('\n');
     const result = [];
@@ -31,9 +42,16 @@ function preprocessMarkdown(md) {
                 calloutLines.push(line.replace(/^\s*>?\s?/, ''));
             } else {
                 const icon = iconMap[calloutType] || '📌';
-                const content = marked.parseInline(calloutLines.join('\n'));
+
+                //const content = marked.parseInline(calloutLines.join('\n'));
+                const rawContent = calloutLines.join('\n');
+                const highlightedContent = applyCustomHighlights(rawContent);
+                const content = marked.parseInline(highlightedContent);
+
+                // Old: Wrote iconMap name to callout
                 //result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span><strong>${calloutType.charAt(0).toUpperCase() + calloutType.slice(1)}:</strong> ${content}</div>`);
                 result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span> ${content}</div>`);
+
                 result.push(line);
                 insideCallout = false;
             }
@@ -45,9 +63,15 @@ function preprocessMarkdown(md) {
     // Final callout if EOF
     if (insideCallout) {
         const icon = iconMap[calloutType] || '📌';
-        const content = marked.parseInline(calloutLines.join('\n'));
-        result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span><strong>${calloutType.charAt(0).toUpperCase() + calloutType.slice(1)}:</strong> ${content}</div>`);
+
+        // const content = marked.parseInline(calloutLines.join('\n'));
+        const rawContent = calloutLines.join('\n');
+        const highlightedContent = applyCustomHighlights(rawContent);
+        const content = marked.parseInline(highlightedContent);
+
+        // Old: Wrote iconMap name to callout
         //result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span> ${content}</div>`);
+        result.push(`<div class="callout ${calloutType}"><span class="icon">${icon}</span><strong>${calloutType.charAt(0).toUpperCase() + calloutType.slice(1)}:</strong> ${content}</div>`);
     }
 
     return result.join('\n');
