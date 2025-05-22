@@ -153,6 +153,8 @@ class: breadcrumb
 
 ## Detektera ändringar
 
+<div style="margin-top: -30px;">
+
 >[!info]
 > Så arbetar Ghidriff
 ><br>
@@ -163,6 +165,8 @@ class: breadcrumb
 >Mha Ghidras API:er körs olika **"correlators" som föreslår matchingar mellan funktioner**. 
 ><br>
 >*3)* Ghidriff skriver ut analysdata i `json`, `html` och `md` *(samma data)*. Vi tittar enbart på datan i `json` -filerna.
+
+</div>
 
 <div class="mermaid">
 flowchart LR
@@ -423,16 +427,23 @@ class: breadcrumb
 
 ## Diskussionspunkter
 
-- **Effektiv negligering av irrelevanta ändringar** *(hög träffsäkerhet av UI-ändringar och nätverksanrop)*
 
-- **Subjektiv manuell analys skapar tveksamheter i resultat med** *(små mängder sampel punkter → Mer tillförlitligt vid större mängd)*
+>[!tip]
+>Relevanta för er
+><br>
+><br>
+>- **Effektiv negligering av irrelevanta ändringar** *(hög träffsäkerhet av UI-ändringar och nätverksanrop)*
+><br>
+><br>
+>- **Externa negativa påverkningar**: Vissa `.dex` -filer går aldrig igenom Ghidra/Ghidriff. **Oklart varför!**
+
+<br>
+
+- **Subjektiv manuell analys av källkod skapar tveksamheter i resultatet** *(små mängder sampel punkter → Mer tillförlitligt vid större mängd)*
 	- Svårt att hitta testdata där alla kategorier blir representerade
 
 - **Vad är en korrekt kategorisering?**
 	- +/- spel där resultatet är lite skevt åt båda håll
-
-- **Externa negativa påverkningar**
-	- Vissa `.dex` -filer går aldrig igenom Ghidra/Ghidriff. **Oklart varför!**
 
 ---
 
