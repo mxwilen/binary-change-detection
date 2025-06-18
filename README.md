@@ -44,7 +44,7 @@ GHIDRA_INSTALL_DIR=<path_to_here>/ghidra/XX.X-XXXXXXXX/ghidra_XX.X_PUBLIC/
 
 ## How to run
 
-1. Put the two apks to analyse inside the folder `signal-binaries`
+1. Put the two apks to analyze inside the folder `signal-binaries`
 2. Change the `.env` vars pointing to these binaries
 ```sh
 APK_LOC_V1=signal-binaries/Signal_Android_7.30.2.apk
