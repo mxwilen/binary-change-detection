@@ -12,7 +12,7 @@ pip install -r requirements.txt
 ```
 
 ### Install Ghidra
->[!NOTE] Ghidra
+>[!note]
 > Ghidra is a software reverse engineering (SRE) framework developed by the National Security Agency (NSA). It helps analyze compiled code on various platforms including Windows, macOS, and Linux.
 
 #### Using homebrew
@@ -28,7 +28,7 @@ choco install ghidra
 Then verify setup by running `ghidraRun`.
 
 ### Setup Ghidriff
->[!NOTE] Ghidriff
+>[!note]
 > `ghidriff` provides a command-line binary diffing capability with a fresh take on diffing workflow and results. This project, developed over the course of a year, leverages the power of Ghidra's ProgramAPI and FlatProgramAPI to find the _added_, _deleted_, and _modified_ functions of two arbitrary binaries. It is written in Python3 using pyhidra to orchestrate Ghidra and `jpype` as the Python to Java interface to Ghidra. 
 > For more info, see [Ghidriff repo](https://github.com/clearbluejar/ghidriff)
 
