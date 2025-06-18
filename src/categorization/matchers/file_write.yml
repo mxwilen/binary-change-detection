@@ -1,0 +1,3 @@
+standalone:   [file]
+strong:       [file, export, persist]
+weak:         [write, save, append]

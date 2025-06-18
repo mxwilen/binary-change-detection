@@ -1,0 +1,3 @@
+standalone:   [db]
+strong:       [sql, database, commit, transaction, backup]
+weak:         [insert, delete, query, store, session]

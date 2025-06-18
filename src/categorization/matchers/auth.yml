@@ -1,0 +1,3 @@
+standalone:   [auth]
+strong:       [auth, login, logout, signin, signout, signup, token, verify, validate, credentials, password, oauth, jwt, bearer, mfa, sso, MasterKey]
+weak:         [refresh, session]

@@ -1,0 +1,3 @@
+standalone:   [CryptoUtils, CryptoHelper, SecureStore, Encrypted.*, .*Encryptor, .*Decryptor]
+strong:       [javax\.crypto, java\.security, bouncycastle, spongycastle, android\.security, Cipher, KeyStore, SecretKey, MessageDigest, encrypt, decrypt, digest, cipher, \brsa\b, aes, md5, keygen, hmac, signature, keystore, crypto, sha224, sha256, sha384, sha512)]
+weak:         [hash, verify]

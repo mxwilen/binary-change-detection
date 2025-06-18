@@ -1,0 +1,3 @@
+standalone:   [error]
+strong:       [error, exception, fail, catch, throw, rollback, crash]
+weak:         [handle, retry, recover]

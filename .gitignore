@@ -1,11 +1,7 @@
-output/*
-example-binaries/SimpleApp_*
+output
 ghidriff-project
-ghidriffs/*
-signal-binaries
+ghidriffs
 
 .DS_Store
-.env
 
 __pycache__/
-categorization/old.py

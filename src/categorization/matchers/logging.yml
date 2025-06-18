@@ -1,0 +1,3 @@
+standalone:   [logger, login]
+strong:       [log, logger, trace, verbose, warn, warning, info, fatal, assert, wtf, Log_v, Log_d, Log_i, Log_w, Log_e]
+weak:         [print, debug]
